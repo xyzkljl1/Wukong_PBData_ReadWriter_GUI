@@ -940,7 +940,7 @@ namespace Wukong_PBData_ReadWriter_GUI
 
                     这个时候引出了一个问题，保存的时候要不要删掉Temp文件的数据,如果删掉就要去读输出目录的文件,目前先不删Temp文件夹的内容先用着        
             */
-            if (string.IsNullOrEmpty(_selectedSaveFolder))
+            if (false&&string.IsNullOrEmpty(_selectedSaveFolder))
             {
                 var result = MessageBox.Show("第一次保存，请选择一个Mod文件夹用于保存修改后的数据", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
                 if (result == MessageBoxResult.OK)
@@ -1363,6 +1363,7 @@ namespace Wukong_PBData_ReadWriter_GUI
             dataItem._File._FileDataItemList.Add(dataItem);
 
             RefreshFileDataItemList(_CurrentOpenFile._FileDataItemList);
+            AddCurrentFileInUpdateFiles();
         }
         private void DelNotModifiedMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -1386,6 +1387,7 @@ namespace Wukong_PBData_ReadWriter_GUI
                     list.Add(dataItem._Data);
                 }
             RefreshFileDataItemList(_CurrentOpenFile._FileDataItemList);
+            AddCurrentFileInUpdateFiles();
         }
 
 
